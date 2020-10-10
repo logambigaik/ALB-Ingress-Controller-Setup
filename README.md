@@ -110,8 +110,8 @@ Create AWS IAM Policy "alb-ingress-controller-policy" with below Json code
         --name alb-ingress-controller \
         --namespace kube-system \
         --cluster eksdemo \
-        --attach-policy-arn arn:aws:iam::119159500181:policy/alb-ingress-controller-policy \  # Replace policy ARN
-        --override-existing-serviceaccounts \
+        --attach-policy-arn arn:aws:iam::119159500181:policy/alb-ingress-controller-policy \
+	--override-existing-serviceaccounts \
         --approve
 # To check iam service account:
 	eksctl  get iamserviceaccount --cluster eksdemo --region us-east-1
