@@ -130,10 +130,23 @@ arn:aws:iam::XXXXXXXXXXXX:policy/alb-ingress-controller-policy
 	
 ![image](https://user-images.githubusercontent.com/54719289/113130208-b6923080-9213-11eb-9246-ca9d9714936b.png)
 
+	kubectl get pods -n kube-system
+
+![image](https://user-images.githubusercontent.com/54719289/113132100-eb9f8280-9215-11eb-9f05-096f7cb81377.png)
+
 # Deploy ALB Ingress Controller
 	kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/master/docs/examples/alb-ingress-controller.yaml
+	
+![image](https://user-images.githubusercontent.com/54719289/113132637-a465c180-9216-11eb-872b-264044700f0c.png)
+
+![image](https://user-images.githubusercontent.com/54719289/113132755-ca8b6180-9216-11eb-816e-9a574592d81c.png)
+
+# For fixing the errod, do the changes in deploy [follow the below steps for editing deploy],
 # Verify Deployment
 	kubectl get deploy -n kube-system
+	
+![image](https://user-images.githubusercontent.com/54719289/113133078-31a91600-9217-11eb-9a0e-f47af866e2de.png)
+
 # Edit ALB Ingress Controller Manifest:
 	kubectl edit deploy alb-ingress-controller -n kube-system
 # Replaced cluster-name with our cluster-name eksdemo1
@@ -142,9 +155,12 @@ arn:aws:iam::XXXXXXXXXXXX:policy/alb-ingress-controller-policy
       - args:
         - --ingress-class=alb
         - --cluster-name=eksdemo
+  ![image](https://user-images.githubusercontent.com/54719289/113133319-6cab4980-9217-11eb-8aa1-f6d494a43898.png)
+
 # Verify our ALB Ingress Controller is running
 	# Verify if alb-ingress-controller pod is running
 	kubectl get pods -n kube-system
   
 	# Verify logs
 	kubectl logs -f $(kubectl get po -n kube-system | egrep -o 'alb-ingress-controller-[A-Za-z0-9-]+') -n kube-system
+![image](https://user-images.githubusercontent.com/54719289/113133462-95334380-9217-11eb-8b66-e93e003b32cf.png)
