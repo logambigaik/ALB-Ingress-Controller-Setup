@@ -108,7 +108,7 @@ Create AWS IAM Policy "alb-ingress-controller-policy" with below Json code
 	
 ![image](https://user-images.githubusercontent.com/54719289/113129192-85653080-9212-11eb-8925-fcb44b2065bd.png)
 
-arn:aws:iam::136962450893:policy/alb-ingress-controller-policy
+arn:aws:iam::XXXXXXXXXXXX:policy/alb-ingress-controller-policy
 
 # Create Role and attach policy to a Role:
     eksctl create iamserviceaccount \
@@ -116,7 +116,7 @@ arn:aws:iam::136962450893:policy/alb-ingress-controller-policy
         --name alb-ingress-controller \
         --namespace kube-system \
         --cluster eksdemo \
-        --attach-policy-arn arn:aws:iam::136962450893:policy/alb-ingress-controller-policy \
+        --attach-policy-arn arn:aws:iam::XXXXXXXX:policy/alb-ingress-controller-policy \
 	--override-existing-serviceaccounts \
         --approve
 	
