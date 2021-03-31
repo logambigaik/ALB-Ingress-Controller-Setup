@@ -1,5 +1,7 @@
 # ALB Install Ingress Controller:
 
+In Kubernetes, an Ingress is an object that allows access to your Kubernetes services from outside the Kubernetes cluster. You configure access by creating a collection of rules that define which inbound connections reach which services. This lets you consolidate your routing rules into a single resource.
+
 # Create a Kubernetes service account named alb-ingress-controller in the kube-system namespace
 	# List Service Accounts
 	kubectl get sa -n kube-system
