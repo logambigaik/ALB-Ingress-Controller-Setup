@@ -164,3 +164,8 @@ arn:aws:iam::XXXXXXXXXXXX:policy/alb-ingress-controller-policy
 	# Verify logs
 	kubectl logs -f $(kubectl get po -n kube-system | egrep -o 'alb-ingress-controller-[A-Za-z0-9-]+') -n kube-system
 ![image](https://user-images.githubusercontent.com/54719289/113133462-95334380-9217-11eb-8b66-e93e003b32cf.png)
+
+	[root@master ~]# kubectl logs alb-ingress-controller-5b96bb464-q5lkp -n kube-system
+
+![image](https://user-images.githubusercontent.com/54719289/113133722-e0e5ed00-9217-11eb-8c8a-5a56de0f457f.png)
+
